@@ -6,7 +6,7 @@
 
 PrimeKG Explorer is an interactive web application for exploring the **Precision Medicine Knowledge Graph (PrimeKG)**. It lets users inspect a disease's neighborhood in the graph, find similar diseases based on shared genes or phenotypes, and surface candidate drugs for repurposing.
 
-![PrimeKG Explorer overview page](images/fig16_overview_page.png)
+![PrimeKG Explorer overview page](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Overview%20page%20of%20PRIMEKG%20explorer.png)
 
 ---
 
@@ -77,16 +77,16 @@ Because PrimeKG is categorical and relational, classical statistics (means, stan
 ### Node Type Distribution
 The graph is heavily skewed toward molecular entities: **gene/protein (~30%)**, **biological process (~23%)**, and **disease (~10%)**. This makes PrimeKG well suited for mechanism-focused analyses, but it also means diseases and drugs are comparatively underrepresented, which can bias analyses toward gene-centric interpretations.
 
-![Node type distribution](images/fig01_node_type_distribution.png)
+![Node type distribution](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Node%20type.png)
 
 ### Degree-Based Summaries
 Highly connected drugs such as **Quinidine (5,200 edges)**, **Chlorpromazine (5,178)**, and **Clozapine (5,150)** dominate the drug-degree distribution. On the disease side, **gallbladder disease (654 drug neighbors)**, **kidney disease (584)**, and **hypertensive disorder (412)** lead. In both cases, high degree reflects research intensity and clinical ubiquity rather than mechanistic specificity.
 
-![Top drugs by degree](images/fig02_top_drugs_by_degree.png)
+![Top drugs by degree](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Top%20drugs%20by%20number.png)
 
-![Diseases with most drug neighbors](images/fig03_diseases_most_drug_neighbors.png)
+![Diseases with most drug neighbors](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Diseases%20with%20most%20drugs.png)
 
-> ⚠️ **Implication:** Hub nodes can disproportionately influence similarity scores and repurposing rankings. Results should be treated as hypothesis-generating.
+> **Implication:** Hub nodes can disproportionately influence similarity scores and repurposing rankings. Results should be treated as hypothesis-generating.
 
 ---
 
@@ -102,9 +102,9 @@ For a selected disease, all directly connected nodes are aggregated and summariz
 
 **Results:** Well-studied diseases have large, gene-dominated neighborhoods. **Breast cancer** has 1,695 neighbors, including 1,667 genes/proteins but only 4 drugs. In contrast, **central nervous system lupus** has just 13 neighbors, highlighting uneven knowledge coverage. This lets users judge upfront whether downstream similarity or repurposing results are likely to be meaningful.
 
-![Neighborhood explorer: breast cancer](images/fig04_neighborhood_breast_cancer.png)
+![Neighborhood explorer: breast cancer](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/DIsease%20neighborhood%20explorer%20for%20breast%20cancer.png)
 
-![Neighborhood explorer: CNS lupus](images/fig05_neighborhood_cns_lupus.png)
+![Neighborhood explorer: CNS lupus](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Disease%20explorer%20for%20lupus.png)
 
 ### 2. Disease–Disease Similarity
 
@@ -121,9 +121,9 @@ J(A, B) = |A ∩ B| / |A ∪ B|
 - **Gene/protein similarity** ranks molecularly related cancers highest (e.g., breast neoplasm, hereditary breast carcinoma, hereditary breast–ovarian cancer syndrome), reflecting shared drivers such as BRCA1/2. Useful for exploring shared molecular etiology and therapeutic targets.
 - **Effect/phenotype similarity** shifts toward diseases with overlapping clinical manifestations, even if their molecular bases differ. Useful for exploring diagnostic overlap and comorbidity patterns.
 
-![Similarity by gene/protein: breast cancer](images/fig06_similarity_gene_breast_cancer.png)
+![Similarity by gene/protein: breast cancer](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Disease-disease%20similarity%20for%20breast%20cancer.png)
 
-![Similarity by phenotype: breast cancer](images/fig07_similarity_phenotype_breast_cancer.png)
+![Similarity by phenotype: breast cancer](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/similarity%20using%20phenotype%20for%20breast%20cancer.png)
 
 **Expectations vs. observations:** Results largely matched expectations. However, Jaccard penalizes differences in set size, so a broadly annotated disease can score lower against a more specific hereditary syndrome even when they share key driver genes. This is a known limitation of set-based similarity in unevenly annotated graphs.
 
@@ -138,13 +138,13 @@ Candidates are ranked by the **number of supporting similar diseases**, a simple
 - **Phenotype-based:** **Carboplatin** and **Doxorubicin** rise to the top, supported by fewer but clinically related diseases.
 - Drugs appearing under **both** definitions (e.g., Paclitaxel, Carboplatin, Doxorubicin) are more robust signals, supported by both molecular and clinical neighbors.
 
-![Repurposing by gene/protein: breast cancer](images/fig08_repurposing_gene_breast_cancer.png)
+![Repurposing by gene/protein: breast cancer](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/drug%20reporposing%20for%20breast%20cancer.png)
 
-![Repurposing by phenotype: breast cancer](images/fig09_repurposing_phenotype_breast_cancer.png)
+![Repurposing by phenotype: breast cancer](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Repurposing%20using%20phenotypes%20for%20breast%20cancer.png)
 
 **Expectations vs. observations:** Some drugs appear broadly across many diseases, reflecting general use rather than specific mechanisms. Diseases with few neighbors yield few or no candidates, showing that repurposing potential is constrained by existing knowledge density.
 
-> ⚠️ **Disclaimer:** These results do not suggest that candidate drugs are novel treatments. This is a hypothesis-generation tool; literature review and experimental or clinical validation are required before drawing any translational conclusions.
+> **Disclaimer:** These results do not suggest that candidate drugs are novel treatments. This is a hypothesis-generation tool; literature review and experimental or clinical validation are required before drawing any translational conclusions.
 
 ---
 
@@ -152,15 +152,15 @@ Candidates are ranked by the **number of supporting similar diseases**, a simple
 
 - **Name matching with fuzzy suggestions.** When a disease name doesn't match the graph, the system returns suggested names instead of failing silently.
 
-  ![Fuzzy suggestions for "lupus"](images/fig10_fuzzy_suggestions_lupus.png)
+  ![Fuzzy suggestions for "lupus"](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Lupus%20for%20fuzzy%20matching.png)
 
 - **Qualitative similarity checks.** Well-known related subtypes consistently ranked above clearly unrelated diseases (e.g., autoimmune cardiomyopathy returns other cardiomyopathies first).
 
-  ![Similarity check: autoimmune cardiomyopathy](images/fig11_similarity_check_autoimmune_cardiomyopathy.png)
+  ![Similarity check: autoimmune cardiomyopathy](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Autoimmune%20cardiomyopathy%20for%20similary%20check%20example.png)
 
 - **Non-circular repurposing.** Candidates are restricted to drugs not already connected to the base disease and supported by at least one similar disease. For hypertension, all 412 known drugs in PrimeKG are correctly excluded from the candidate list.
 
-  ![Repurposing check: hypertension](images/fig12_repurposing_check_hypertension.png)
+  ![Repurposing check: hypertension](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Hypertension%20as%20repurposing%20example.png)
 
 ---
 
@@ -276,11 +276,11 @@ The front end uses **HTML, CSS, and JavaScript**, with **Plotly.js** for interac
 | `/similarity` | Disease–Disease Similarity |
 | `/repurposing` | Drug Repurposing Candidates |
 
-![Neighborhood page](images/fig17_neighborhood_page.png)
+![Neighborhood page](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/neighborhood%20page.png)
 
-![Similarity page](images/fig18_similarity_page.png)
+![Similarity page](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Similarity%20page.png)
 
-![Repurposing page](images/fig19_repurposing_page.png)
+![Repurposing page](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Repurposing%20page.png)
 
 ### Features
 - **Analysis selection** via navigation links and per-page controls.
@@ -289,7 +289,7 @@ The front end uses **HTML, CSS, and JavaScript**, with **Plotly.js** for interac
 - **Interactive visualizations:** Plotly bar charts with hover tooltips and labeled axes.
 - **Expandable result lists:** click a bar to view all connected nodes of that type.
 
-![Expandable results list](images/fig20_results_list_hypertension.png)
+![Expandable results list](https://github.com/Bemnet-Kinfe/PRIMEKG-Precision-Medicine-Explorer/blob/main/images/Example%20of%20results%20list.png)
 
 ---
 
